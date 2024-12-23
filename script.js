@@ -1,29 +1,17 @@
-// Video data
-const videos = [
-    { title: "Video Title 1", src: "video1.mp4" },
-    { title: "Video Title 2", src: "video2.mp4" },
-    { title: "Video Title 3", src: "video3.mp4" }
-];
+function playVideo(videoId) {
+    const videoPlayer = document.getElementById("video-player");
+    const videoSource = document.getElementById("video-source");
 
-// Function to render video cards
-function renderVideos() {
-    const container = document.getElementById("video-container");
+    // Update the source of the video based on the clicked movie
+    if (videoId === 'video1') {
+        videoSource.src = 'video1.mp4';
+    } else if (videoId === 'video2') {
+        videoSource.src = 'video2.mp4';
+    } else if (videoId === 'video3') {
+        videoSource.src = 'video3.mp4';
+    }
 
-    videos.forEach(video => {
-        const card = document.createElement("div");
-        card.classList.add("video-card");
-
-        card.innerHTML = `
-            <video controls>
-                <source src="${video.src}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <h3>${video.title}</h3>
-        `;
-
-        container.appendChild(card);
-    });
+    // Load and play the new video
+    videoPlayer.load();
+    videoPlayer.play();
 }
-
-// Initialize the page
-renderVideos();
